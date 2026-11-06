@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools==68.1.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bohrpy"
+version = "0.1.0"
+description = "Librería para cálculos y visualización del modelo atómico de Bohr"
+readme = "README.md"
+authors = [
+    { name = "Isabel Nieto" },
+    { name = "Kevin Osorio" },
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+    "numpy==1.26.4",
+    "matplotlib==3.6.3",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.2.0"]
+
+[project.urls]
+Homepage = "https://github.com/isabelnieto900/bohrpy"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
