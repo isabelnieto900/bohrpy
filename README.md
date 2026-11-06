@@ -61,6 +61,17 @@ python examples/ejemplo_uso.py
 
 Imprime los niveles del hidrógeno, la línea de Balmer n = 3 → n = 2 y una absorción n = 1 → n = 2. También guarda las figuras en `examples/figuras/`.
 
+## Documentación
+
+La documentación hecha con Sphinx está en [isabelnieto900.github.io/bohrpy](https://isabelnieto900.github.io/bohrpy/).
+
+Para construirla en local:
+
+```bash
+pip install -e ".[docs]"
+sphinx-build -b html docs docs/_build/html
+```
+
 ## Pruebas
 
 ```bash

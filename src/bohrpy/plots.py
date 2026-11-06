@@ -11,6 +11,7 @@ SERIES = {
     4: ("Brackett", "#9467bd"),
     5: ("Pfund", "#8c564b"),
 }
+"""Nombre y color de cada serie, según el nivel inferior de la transición."""
 
 
 def _validar_max_n(max_n):
