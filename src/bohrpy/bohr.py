@@ -1,6 +1,3 @@
-# hola 
-import matplotlib.pyplot as plt
-import numpy as np
 from .constants import H_PLANCK, C_LIGHT, E_CHARGE, A_0
 
 class BohrAtom:
@@ -64,45 +61,24 @@ class BohrAtom:
             "type": "emisión" if n_initial > n_final else "absorción"
         }
 
-    def plot_energy_levels(self, max_n=5):
+    def plot_energy_levels(self, max_n=5, show=True, save_path=None):
         """
-        Representa gráficamente los niveles de energía y posibles transiciones hasta el nivel max_n.
-        """
-        plt.figure(figsize=(6, 8))
-        for n in range(1, max_n + 1):
-            E = self.energy_level(n)
-            plt.axhline(y=E, color='b', linestyle='-', alpha=0.6)
-            plt.text(0.5, E + 0.1, f'n={n} (E={E:.2f} eV)', ha='center', va='bottom', color='black', fontsize=10)
-        
-        plt.title(f'Niveles de energía para átomo hidrogenoide (Z={self.Z})')
-        plt.ylabel('Energía (eV)')
-        plt.xticks([])  # Ocultar eje X ya que no representa nada físico aquí
-        plt.grid(axis='y', linestyle='--', alpha=0.4)
-        plt.tight_layout()
-        plt.show()
+        Representa los niveles de energía y las transiciones hasta max_n.
 
-    def plot_orbits(self, max_n=4):
+        El dibujo vive en plots.py. Este método solo expone esa gráfica
+        desde el átomo.
         """
-        Dibuja de manera simplificada las órbitas electrónicas circulares en el plano 2D.
+        from .plots import plot_energy_levels
+
+        return plot_energy_levels(self, max_n=max_n, show=show, save_path=save_path)
+
+    def plot_orbits(self, max_n=4, show=True, save_path=None):
         """
-        fig, ax = plt.subplots(figsize=(7, 7))
-        theta = np.linspace(0, 2*np.pi, 100)
-        
-        # Graficar el Núcleo
-        ax.plot(0, 0, 'ro', markersize=12, label=f'Núcleo (Z={self.Z})')
-        
-        for n in range(1, max_n + 1):
-            # Convertir radio a Angstroms (1e10) para que la gráfica sea más legible
-            r_angstrom = self.orbit_radius(n) * 1e10  
-            x = r_angstrom * np.cos(theta)
-            y = r_angstrom * np.sin(theta)
-            ax.plot(x, y, label=f'n={n} (r={r_angstrom:.2f} Å)')
-        
-        ax.set_aspect('equal')
-        plt.title(f'Órbitas del modelo de Bohr (Z={self.Z})')
-        plt.xlabel('Distancia X (Å)')
-        plt.ylabel('Distancia Y (Å)')
-        plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1))
-        plt.grid(True, linestyle='--', alpha=0.5)
-        plt.tight_layout()
-        plt.show()
+        Dibuja las órbitas electrónicas en el plano hasta el nivel max_n.
+
+        El dibujo vive en plots.py. Este método solo expone esa gráfica
+        desde el átomo.
+        """
+        from .plots import plot_orbits
+
+        return plot_orbits(self, max_n=max_n, show=show, save_path=save_path)
