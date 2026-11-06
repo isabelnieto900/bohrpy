@@ -12,11 +12,17 @@ source venv/bin/activate
 pip install -e ".[test]"
 ```
 
-El paquete pide estas versiones, que son las usadas en el proyecto:
+Hace falta Python 3.12 o superior. El paquete instala exactamente estas versiones, que son las recientes con paquete listo para Python 3.12, 3.13 y 3.14:
 
-- `numpy==1.26.4`
-- `matplotlib==3.6.3`
+- `numpy==2.5.4`
+- `matplotlib==3.11.2`
 - `pytest==9.2.0` para las pruebas
+
+Desde PyPI:
+
+```bash
+pip install bohrpy
+```
 
 ## Uso básico
 
